@@ -1,0 +1,2 @@
+add_subdirectory(flight_controller)
+add_subdirectory(groundstation_ifc)

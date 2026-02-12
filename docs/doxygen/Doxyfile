@@ -1,0 +1,36 @@
+PROJECT_NAME           = "Ascent"
+PROJECT_BRIEF          = "Rocket Avionics Flight Software"
+PROJECT_NUMBER         = 0.1.0
+
+OUTPUT_DIRECTORY       = ../../build/docs
+INPUT                  = ../../core/include \
+                         ../../hal/include \
+                         ../../drivers/include \
+                         ../../modules/navigation/include \
+                         ../../modules/propulsion/include \
+                         ../../modules/communication/include \
+                         ../../modules/telemetry/include \
+                         ../../modules/safety/include \
+                         ../../config
+
+RECURSIVE              = YES
+FILE_PATTERNS          = *.h *.hpp
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+OPTIMIZE_OUTPUT_FOR_C  = NO
+BUILTIN_STL_SUPPORT    = YES
+
+QUIET                  = YES
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+
+HAVE_DOT               = NO
