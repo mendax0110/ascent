@@ -6,7 +6,7 @@ AbortController::AbortController() noexcept
 {
 }
 
-void AbortController::triggerAbort(AbortReason reason) noexcept
+void AbortController::triggerAbort(const AbortReason reason) noexcept
 {
     m_reason = reason;
     m_aborted = true;

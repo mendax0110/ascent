@@ -44,13 +44,13 @@ namespace ascent::drivers
          * @brief Get latest GPS data.
          * @return const GpsData&
          */
-        const GpsData& getData() const noexcept;
+        [[nodiscard]] const GpsData& getData() const noexcept;
 
         /**
          * @brief Check if GPS has a valid fix.
          * @return true if GPS has a valid fix.
          */
-        bool hasFix() const noexcept;
+        [[nodiscard]] bool hasFix() const noexcept;
 
     protected:
         GpsData m_data = {};

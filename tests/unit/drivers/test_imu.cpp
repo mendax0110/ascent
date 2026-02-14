@@ -12,18 +12,18 @@ public:
     TestImu() noexcept : Imu("TestIMU") {}
 
 protected:
-    core::StatusCode doInit() noexcept override
+    StatusCode doInit() noexcept override
     {
         m_data.accel = {0.0f, 0.0f, -9.81f};
         m_data.gyro = {0.0f, 0.0f, 0.0f};
         m_data.temperature = 25.0f;
-        return core::StatusCode::Ok;
+        return StatusCode::Ok;
     }
 
-    core::StatusCode doUpdate() noexcept override
+    StatusCode doUpdate() noexcept override
     {
         m_data.accel.z = -9.81f;
-        return core::StatusCode::Ok;
+        return StatusCode::Ok;
     }
 };
 

@@ -7,13 +7,13 @@ AltitudeEstimator::AltitudeEstimator() noexcept
 {
 }
 
-void AltitudeEstimator::updateBarometer(float baro_alt_m, float dt) noexcept
+void AltitudeEstimator::updateBarometer(const float baro_alt_m, const float dt) noexcept
 {
     m_altitude_filter.predict(dt);
     m_altitude_filter.update(baro_alt_m);
 }
 
-void AltitudeEstimator::updateAccelerometer(float accel_z_ms2, float dt) noexcept
+void AltitudeEstimator::updateAccelerometer(const float accel_z_ms2, const float dt) noexcept
 {
     m_vertical_velocity += accel_z_ms2 * dt;
 }
@@ -28,7 +28,7 @@ float AltitudeEstimator::getVerticalVelocity() const noexcept
     return m_vertical_velocity;
 }
 
-void AltitudeEstimator::setGroundLevel(float alt_m) noexcept
+void AltitudeEstimator::setGroundLevel(const float alt_m) noexcept
 {
     m_ground_level = alt_m;
 }

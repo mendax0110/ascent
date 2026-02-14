@@ -49,7 +49,7 @@ namespace ascent::telemetry
          * @brief Get total bytes logged.
          * @return Total bytes logged.
          */
-        uint32_t getBytesLogged() const noexcept;
+        [[nodiscard]] uint32_t getBytesLogged() const noexcept;
 
         /**
          * @brief Enable or disable logging.

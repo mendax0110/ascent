@@ -31,7 +31,7 @@ namespace ascent::safety
          * @param velocity Velocity in NED frame [m/s].
          * @return true if within safe limits.
          */
-        bool checkLimits(const core::Vec3f& position, const core::Vec3f& velocity) const noexcept;
+        [[nodiscard]] bool checkLimits(const core::Vec3f& position, const core::Vec3f& velocity) const noexcept;
 
         /**
          * @brief Set geofence configuration.
@@ -43,7 +43,7 @@ namespace ascent::safety
          * @brief Get current geofence configuration.
          * @return Current geofence configuration.
          */
-        const GeofenceConfig& getConfig() const noexcept;
+        [[nodiscard]] const GeofenceConfig& getConfig() const noexcept;
 
     private:
         GeofenceConfig m_config;

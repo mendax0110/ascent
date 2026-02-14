@@ -36,7 +36,7 @@ namespace ascent::hal
          * @brief Get configured timeout.
          * @return Watchdog timeout in milliseconds.
          */
-        uint32_t getTimeoutMs() const noexcept;
+        [[nodiscard]] uint32_t getTimeoutMs() const noexcept;
 
     private:
         uint32_t m_timeout_ms;

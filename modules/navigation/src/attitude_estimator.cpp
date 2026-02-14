@@ -4,7 +4,7 @@
 using namespace ascent::navigation;
 using namespace ascent::core;
 
-AttitudeEstimator::AttitudeEstimator(float alpha) noexcept
+AttitudeEstimator::AttitudeEstimator(const float alpha) noexcept
     : m_attitude(Quaternion::identity())
     , m_alpha(alpha)
 {

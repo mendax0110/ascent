@@ -65,12 +65,12 @@ TEST(Gps, SimulateFixHasFix)
 
 TEST(Gps, DefaultHdop)
 {
-    TestGps gps;
+    const TestGps gps;
     EXPECT_FLOAT_EQ(gps.getData().hdop, 99.9f);
 }
 
 TEST(Gps, NameIsCorrect)
 {
-    TestGps gps;
+    const TestGps gps;
     EXPECT_STREQ(gps.getName(), "TestGPS");
 }

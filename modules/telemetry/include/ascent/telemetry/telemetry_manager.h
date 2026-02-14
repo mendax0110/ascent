@@ -42,7 +42,7 @@ namespace ascent::telemetry
          * @brief Get total packets sent.
          * @return Total packets sent.
          */
-        uint32_t getPacketsSent() const noexcept;
+        [[nodiscard]] uint32_t getPacketsSent() const noexcept;
 
     private:
         uint32_t m_rate_hz = 10;

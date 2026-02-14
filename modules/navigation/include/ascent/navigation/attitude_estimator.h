@@ -34,13 +34,13 @@ namespace ascent::navigation
          * @brief Get estimated attitude quaternion.
          * @return Estimated attitude as a quaternion.
          */
-        const core::Quaternion& getAttitude() const noexcept;
+        [[nodiscard]] const core::Quaternion& getAttitude() const noexcept;
 
         /**
          * @brief Get Euler angles (roll, pitch, yaw) in degrees.
          * @return Euler angles in degrees.
          */
-        core::Vec3f getEulerDeg() const noexcept;
+        [[nodiscard]] core::Vec3f getEulerDeg() const noexcept;
 
         /**
          * @brief Reset to identity orientation.

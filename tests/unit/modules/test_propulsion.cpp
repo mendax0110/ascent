@@ -18,14 +18,14 @@ TEST_F(PropulsionTest, InitialStateSafe)
 
 TEST_F(PropulsionTest, InitSucceeds)
 {
-    auto status = ctrl.init();
+    const auto status = ctrl.init();
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
 TEST_F(PropulsionTest, ArmFromSafe)
 {
     ctrl.init();
-    auto status = ctrl.arm();
+    const auto status = ctrl.arm();
     EXPECT_EQ(status, StatusCode::Ok);
     EXPECT_EQ(ctrl.getState(), PropulsionState::Armed);
 }
@@ -42,14 +42,14 @@ TEST_F(PropulsionTest, IgniteFromArmed)
 {
     ctrl.init();
     ctrl.arm();
-    auto status = ctrl.ignite();
+    const auto status = ctrl.ignite();
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
 TEST_F(PropulsionTest, IgniteFromSafeFails)
 {
     ctrl.init();
-    auto status = ctrl.ignite();
+    const auto status = ctrl.ignite();
     EXPECT_NE(status, StatusCode::Ok);
 }
 
@@ -75,14 +75,14 @@ TEST_F(IgnitionSeqTest, InitiallyNotRunning)
 
 TEST_F(IgnitionSeqTest, AddStep)
 {
-    auto status = seq.addStep("ignite", 100, 500);
+    const auto status = seq.addStep("ignite", 100, 500);
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
 TEST_F(IgnitionSeqTest, StartSequence)
 {
     seq.addStep("ignite", 0, 100);
-    auto status = seq.start();
+    const auto status = seq.start();
     EXPECT_EQ(status, StatusCode::Ok);
     EXPECT_TRUE(seq.isRunning());
 }

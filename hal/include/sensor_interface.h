@@ -43,19 +43,19 @@ namespace ascent::hal
          * @brief Check if new data is available.
          * @return true if new data is ready to be read.
          */
-        virtual bool isReady() const noexcept = 0;
+        [[nodiscard]] virtual bool isReady() const noexcept = 0;
 
         /**
          * @brief Get current sensor state.
          * @return SensorState
          */
-        virtual SensorState getState() const noexcept = 0;
+        [[nodiscard]] virtual SensorState getState() const noexcept = 0;
 
         /**
          * @brief Get sensor name identifier.
          * @return pointer to null-terminated string.
          */
-        virtual const char* getName() const noexcept = 0;
+        [[nodiscard]] virtual const char* getName() const noexcept = 0;
 
     protected:
         ISensor() = default;

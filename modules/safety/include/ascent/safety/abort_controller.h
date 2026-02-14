@@ -49,13 +49,13 @@ namespace ascent::safety
          * @brief Check if abort has been triggered.
          * @return True if abort has been triggered, false otherwise.
          */
-        bool isAborted() const noexcept;
+        [[nodiscard]] bool isAborted() const noexcept;
 
         /**
          * @brief Get the abort reason.
          * @return Reason for abort.
          */
-        AbortReason getReason() const noexcept;
+        [[nodiscard]] AbortReason getReason() const noexcept;
 
     private:
         AbortReason m_reason = AbortReason::None;

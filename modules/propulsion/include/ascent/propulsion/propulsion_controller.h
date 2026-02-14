@@ -71,7 +71,7 @@ namespace ascent::propulsion
          * @brief Get current propulsion state.
          * @return ascent::propulsion::PropulsionState
          */
-        PropulsionState getState() const noexcept;
+        [[nodiscard]] PropulsionState getState() const noexcept;
 
     private:
         PropulsionState m_state = PropulsionState::Safe;

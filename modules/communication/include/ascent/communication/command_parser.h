@@ -56,7 +56,7 @@ namespace ascent::communication
          * @brief Check if a complete command is available.
          * @return true if a complete command has been parsed and is ready to be retrieved.
          */
-        bool hasCommand() const noexcept;
+        [[nodiscard]] bool hasCommand() const noexcept;
 
         /**
          * @brief Get the next parsed command.

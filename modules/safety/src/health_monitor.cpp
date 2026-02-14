@@ -16,7 +16,7 @@ const HealthStatus& HealthMonitor::getStatus() const noexcept
     return m_status;
 }
 
-void HealthMonitor::setBatteryLimits(float min_v, float warn_v) noexcept
+void HealthMonitor::setBatteryLimits(const float min_v, const float warn_v) noexcept
 {
     m_min_battery_v = min_v;
     m_warn_battery_v = warn_v;

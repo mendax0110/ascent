@@ -9,7 +9,7 @@ GpsHandler::GpsHandler() noexcept
 {
 }
 
-void GpsHandler::setOrigin(double lat_deg, double lon_deg, float alt_m) noexcept
+void GpsHandler::setOrigin(const double lat_deg, const double lon_deg, const float alt_m) noexcept
 {
     m_origin_lat = lat_deg;
     m_origin_lon = lon_deg;

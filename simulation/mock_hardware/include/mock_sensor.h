@@ -36,13 +36,13 @@ namespace ascent::sim
          * @brief Initialize the mock sensor. Returns StatusCode::Ok or StatusCode::Error based on m_init_success.
          * @return ascent::core::StatusCode 
          */
-        ascent::core::StatusCode doInit() noexcept override;
+        core::StatusCode doInit() noexcept override;
 
         /**
          * @brief Update the mock sensor. Sets m_data based on m_mock_value.
          * @return ascent::core::StatusCode 
          */
-        ascent::core::StatusCode doUpdate() noexcept override;
+        core::StatusCode doUpdate() noexcept override;
 
     private:
         float m_mock_value = 0.0f;

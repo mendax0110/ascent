@@ -6,7 +6,7 @@ ThrustMonitor::ThrustMonitor() noexcept
 {
 }
 
-void ThrustMonitor::update(float accel_ms2, float dt) noexcept
+void ThrustMonitor::update(const float accel_ms2, const float dt) noexcept
 {
     if (accel_ms2 > m_burnout_threshold)
     {
@@ -39,7 +39,7 @@ float ThrustMonitor::getBurnDuration() const noexcept
     return m_burn_duration;
 }
 
-void ThrustMonitor::setBurnoutThreshold(float threshold_ms2) noexcept
+void ThrustMonitor::setBurnoutThreshold(const float threshold_ms2) noexcept
 {
     m_burnout_threshold = threshold_ms2;
 }

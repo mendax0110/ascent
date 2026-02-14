@@ -13,7 +13,7 @@ const BarometerData& Barometer::getData() const noexcept
     return m_data;
 }
 
-void Barometer::setReferencePressure(float ref_pressure_pa) noexcept
+void Barometer::setReferencePressure(const float ref_pressure_pa) noexcept
 {
     m_ref_pressure_pa = ref_pressure_pa;
 }

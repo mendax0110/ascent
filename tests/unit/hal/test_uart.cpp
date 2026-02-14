@@ -14,8 +14,8 @@ TEST(Uart, ConstructWithConfig)
 TEST(Uart, WriteReturnsOk)
 {
     Uart uart(UartConfig{});
-    uint8_t data[] = {0x48, 0x49};
-    auto status = uart.write(data, sizeof(data));
+    constexpr uint8_t data[] = {0x48, 0x49};
+    const auto status = uart.write(data, sizeof(data));
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
@@ -24,13 +24,13 @@ TEST(Uart, ReadReturnsOk)
     Uart uart(UartConfig{});
     uint8_t data[8] = {};
     size_t bytes_read = 0;
-    auto status = uart.read(data, sizeof(data), bytes_read);
+    const auto status = uart.read(data, sizeof(data), bytes_read);
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
 TEST(Uart, AvailableReturnsZeroInitially)
 {
-    Uart uart(UartConfig{});
+    const Uart uart(UartConfig{});
     EXPECT_EQ(uart.available(), 0u);
 }
 

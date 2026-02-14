@@ -24,7 +24,7 @@ namespace ascent::drivers
          * @param min_pulse_us Minimum pulse width in microseconds.
          * @param max_pulse_us Maximum pulse width in microseconds.
          */
-        Servo(const char* name, std::unique_ptr<ascent::hal::Pwm> pwm, uint32_t min_pulse_us = 1000, uint32_t max_pulse_us = 2000) noexcept;
+        Servo(const char* name, std::unique_ptr<hal::Pwm> pwm, uint32_t min_pulse_us = 1000, uint32_t max_pulse_us = 2000) noexcept;
         ~Servo() override = default;
 
         /**
@@ -36,7 +36,7 @@ namespace ascent::drivers
         /**
          * @brief Get current commanded angle.
          */
-        float getAngle() const noexcept;
+        [[nodiscard]] float getAngle() const noexcept;
 
     protected:
 
@@ -44,7 +44,7 @@ namespace ascent::drivers
          * @brief Initialize the servo hardware.
          * @return ascent::core::StatusCode 
          */
-        ascent::core::StatusCode doInit() noexcept override;
+        core::StatusCode doInit() noexcept override;
         
         /**
          * @brief Put the servo in a safe state (e.g. 0 degrees).
@@ -52,7 +52,7 @@ namespace ascent::drivers
         void doSafe() noexcept override;
 
     private:
-        std::unique_ptr<ascent::hal::Pwm> m_pwm;
+        std::unique_ptr<hal::Pwm> m_pwm;
         uint32_t m_min_pulse_us;
         uint32_t m_max_pulse_us;
         float m_current_angle = 0.0f;

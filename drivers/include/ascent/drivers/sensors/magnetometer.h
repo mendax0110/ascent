@@ -10,7 +10,7 @@ namespace ascent::drivers
     /// @brief Magnetometer data structure. \struct ascent::drivers::MagnetometerData
     struct MagnetometerData
     {
-        ascent::core::Vec3f field;
+        core::Vec3f field;
     };
 
     /**
@@ -29,7 +29,7 @@ namespace ascent::drivers
          * @brief Get latest magnetometer readings.
          * @return const MagnetometerData&
          */
-        const MagnetometerData& getData() const noexcept;
+        [[nodiscard]] const MagnetometerData& getData() const noexcept;
 
     protected:
         MagnetometerData m_data = {};

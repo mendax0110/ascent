@@ -8,7 +8,7 @@ using namespace ascent::core;
 LogLevel Logger::s_min_level = LogLevel::Info;
 std::array<char, Config::kLogBufferSize> Logger::s_buffer = {};
 
-void Logger::init(LogLevel min_level) noexcept
+void Logger::init(const LogLevel min_level) noexcept
 {
     s_min_level = min_level;
     s_buffer.fill('\0');
@@ -39,7 +39,7 @@ void Logger::log(LogLevel level, const char* tag, const char* fmt, ...) noexcept
     }
 }
 
-void Logger::setLevel(LogLevel level) noexcept
+void Logger::setLevel(const LogLevel level) noexcept
 {
     s_min_level = level;
 }

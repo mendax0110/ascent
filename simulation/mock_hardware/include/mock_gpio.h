@@ -9,7 +9,7 @@ namespace ascent::sim
      * @class MockGpio
      * @brief Mock GPIO pin for testing.
      */
-    class MockGpio : public ascent::hal::IGpio
+    class MockGpio : public hal::IGpio
     {
     public:
         MockGpio() noexcept = default;
@@ -35,13 +35,13 @@ namespace ascent::sim
          * @return true If pin is high, false if low. Initial state is low (false).
          * @return false If pin is low.
          */
-        bool read() const noexcept override;
+        [[nodiscard]] bool read() const noexcept override;
 
         /**
          * @brief Get current pin state.
          * @return true if pin is high, false if low.
          */
-        bool getState() const noexcept;
+        [[nodiscard]] bool getState() const noexcept;
 
     private:
         bool m_state = false;

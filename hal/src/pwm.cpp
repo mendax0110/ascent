@@ -2,7 +2,7 @@
 
 using namespace ascent::hal;
 
-Pwm::Pwm(PwmChannel channel, uint32_t frequency_hz) noexcept
+Pwm::Pwm(const PwmChannel channel, const uint32_t frequency_hz) noexcept
     : m_channel(channel)
     , m_frequency_hz(frequency_hz)
     , m_enabled(false)

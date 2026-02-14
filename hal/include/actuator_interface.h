@@ -41,12 +41,12 @@ namespace ascent::hal
         /**
          * @brief Get current actuator state.
          */
-        virtual ActuatorState getState() const noexcept = 0;
+        [[nodiscard]] virtual ActuatorState getState() const noexcept = 0;
 
         /**
          * @brief Get actuator name identifier.
          */
-        virtual const char* getName() const noexcept = 0;
+        [[nodiscard]] virtual const char* getName() const noexcept = 0;
 
     protected:
         IActuator() = default;

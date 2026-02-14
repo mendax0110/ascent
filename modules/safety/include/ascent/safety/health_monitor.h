@@ -39,7 +39,7 @@ namespace ascent::safety
          * @brief Get current health status.
          * @return Current health status.
          */
-        const HealthStatus& getStatus() const noexcept;
+        [[nodiscard]] const HealthStatus& getStatus() const noexcept;
 
         /**
          * @brief Set battery voltage thresholds.

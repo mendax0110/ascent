@@ -82,6 +82,6 @@ namespace ascent::core
          * @param to Desired new state.
          * @return True if transition is valid, false otherwise.
          */
-        bool isValidTransition(SystemState from, SystemState to) const noexcept;
+        static bool isValidTransition(SystemState from, SystemState to) noexcept;
     };
 } // namespace ascent::core

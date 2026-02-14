@@ -4,7 +4,7 @@ using namespace ascent::drivers;
 using namespace ascent::core;
 using namespace ascent::hal;
 
-Valve::Valve(const char* name, std::unique_ptr<Gpio> gpio, bool active_high) noexcept
+Valve::Valve(const char* name, std::unique_ptr<Gpio> gpio, const bool active_high) noexcept
     : ActuatorBase(name)
     , m_gpio(std::move(gpio))
     , m_active_high(active_high)

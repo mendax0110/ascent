@@ -5,7 +5,7 @@ using namespace ascent::core;
 using namespace ascent::hal;
 
 Servo::Servo(const char* name, std::unique_ptr<Pwm> pwm,
-             uint32_t min_pulse_us, uint32_t max_pulse_us) noexcept
+             const uint32_t min_pulse_us, const uint32_t max_pulse_us) noexcept
     : ActuatorBase(name)
     , m_pwm(std::move(pwm))
     , m_min_pulse_us(min_pulse_us)
@@ -25,8 +25,7 @@ void Servo::setAngle(float angle_deg) noexcept
 
     m_current_angle = angle_deg;
     const float ratio = angle_deg / 180.0f;
-    const uint32_t pulse = m_min_pulse_us +
-        static_cast<uint32_t>(ratio * static_cast<float>(m_max_pulse_us - m_min_pulse_us));
+    const uint32_t pulse = m_min_pulse_us + static_cast<uint32_t>(ratio * static_cast<float>(m_max_pulse_us - m_min_pulse_us));
 
     if (m_pwm)
     {

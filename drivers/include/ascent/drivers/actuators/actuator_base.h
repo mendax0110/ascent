@@ -14,7 +14,7 @@ namespace ascent::drivers
      * Provides common state management. Concrete actuators
      * override doInit() and doSafe().
      */
-    class ActuatorBase : public ascent::hal::IActuator
+    class ActuatorBase : public hal::IActuator
     {
     public:
         /**
@@ -33,7 +33,7 @@ namespace ascent::drivers
          * @brief Initialize the actuator.
          * @return ascent::core::StatusCode 
          */
-        ascent::core::StatusCode init() noexcept override;
+        core::StatusCode init() noexcept override;
 
         /**
          * @brief Put the actuator in a safe state.
@@ -44,20 +44,20 @@ namespace ascent::drivers
          * @brief Get the State object
          * @return ascent::hal::ActuatorState 
          */
-        ascent::hal::ActuatorState getState() const noexcept override;
+        [[nodiscard]] hal::ActuatorState getState() const noexcept override;
         
         /**
          * @brief Get the Name object
          * @return const char* 
          */
-        const char* getName() const noexcept override;
+        [[nodiscard]] const char* getName() const noexcept override;
 
     protected:
         /**
          * @brief Initialize the actuator.
          * @return ascent::core::StatusCode 
          */
-        virtual ascent::core::StatusCode doInit() noexcept = 0;
+        virtual core::StatusCode doInit() noexcept = 0;
 
         /**
          * @brief Put the actuator in a safe state.
@@ -65,7 +65,7 @@ namespace ascent::drivers
          */
         virtual void doSafe() noexcept = 0;
 
-        ascent::hal::ActuatorState m_state = ascent::hal::ActuatorState::Uninitialized;
+        hal::ActuatorState m_state = hal::ActuatorState::Uninitialized;
 
     private:
         const char* m_name;

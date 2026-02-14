@@ -22,7 +22,7 @@ namespace ascent::drivers
          * @param gpio GPIO pin controlling the valve (takes ownership).
          * @param active_high true if high = open.
          */
-        Valve(const char* name, std::unique_ptr<ascent::hal::Gpio> gpio, bool active_high = true) noexcept;
+        Valve(const char* name, std::unique_ptr<hal::Gpio> gpio, bool active_high = true) noexcept;
         ~Valve() override = default;
 
         /**
@@ -38,14 +38,14 @@ namespace ascent::drivers
         /**
          * @brief Check if valve is currently open.
          */
-        bool isOpen() const noexcept;
+        [[nodiscard]] bool isOpen() const noexcept;
 
     protected:
         /**
          * @brief Initialize the valve hardware.
          * @return ascent::core::StatusCode 
          */
-        ascent::core::StatusCode doInit() noexcept override;
+        core::StatusCode doInit() noexcept override;
         
         /**
          * @brief Put the valve in a safe state (closed).
@@ -53,7 +53,7 @@ namespace ascent::drivers
         void doSafe() noexcept override;
 
     private:
-        std::unique_ptr<ascent::hal::Gpio> m_gpio;
+        std::unique_ptr<hal::Gpio> m_gpio;
         bool m_active_high;
         bool m_is_open = false;
     };

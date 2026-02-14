@@ -13,5 +13,4 @@ namespace ascent::config
         static constexpr bool kHasHardwareWatchdog = false;
         static constexpr bool kHasRealHardware = false;
     };
-
 } // namespace ascent::config

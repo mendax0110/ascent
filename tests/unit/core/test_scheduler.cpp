@@ -26,7 +26,7 @@ TEST_F(SchedulerTest, InitiallyEmpty)
 
 TEST_F(SchedulerTest, AddTask)
 {
-    auto status = sched.addTask("task1", dummyTask, 100);
+    const auto status = sched.addTask("task1", dummyTask, 100);
     EXPECT_EQ(status, StatusCode::Ok);
     EXPECT_EQ(sched.getTaskCount(), 1u);
 }
@@ -40,14 +40,14 @@ TEST_F(SchedulerTest, AddMultipleTasks)
 
 TEST_F(SchedulerTest, RejectsNullFunction)
 {
-    auto status = sched.addTask("null", nullptr, 100);
+    const auto status = sched.addTask("null", nullptr, 100);
     EXPECT_EQ(status, StatusCode::InvalidParam);
     EXPECT_EQ(sched.getTaskCount(), 0u);
 }
 
 TEST_F(SchedulerTest, RejectsNullName)
 {
-    auto status = sched.addTask(nullptr, dummyTask, 100);
+    const auto status = sched.addTask(nullptr, dummyTask, 100);
     EXPECT_EQ(status, StatusCode::InvalidParam);
 }
 
@@ -94,6 +94,6 @@ TEST_F(SchedulerTest, ReenableTask)
 TEST_F(SchedulerTest, SetEnabledUnknownTaskFails)
 {
     sched.addTask("known", dummyTask, 100);
-    auto status = sched.setTaskEnabled("unknown", false);
+    const auto status = sched.setTaskEnabled("unknown", false);
     EXPECT_EQ(status, StatusCode::InvalidParam);
 }

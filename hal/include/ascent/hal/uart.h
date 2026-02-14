@@ -45,7 +45,7 @@ namespace ascent::hal
          * @brief Check if data is available.
          * @return Number of bytes available in receive buffer.
          */
-        size_t available() const noexcept;
+        [[nodiscard]] size_t available() const noexcept;
 
         /**
          * @brief Flush transmit buffer.

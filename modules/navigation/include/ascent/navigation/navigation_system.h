@@ -57,7 +57,7 @@ namespace ascent::navigation
          * @brief Get current navigation state.
          * @return Current navigation state.
          */
-        const NavigationState& getState() const noexcept;
+        [[nodiscard]] const NavigationState& getState() const noexcept;
 
         /**
          * @brief Feed IMU measurement.

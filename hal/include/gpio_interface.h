@@ -39,7 +39,7 @@ namespace ascent::hal
          * @brief Read the current state of the GPIO pin.
          * @return true if the pin is high, false if low.
          */
-        virtual bool read() const noexcept = 0;
+        [[nodiscard]] virtual bool read() const noexcept = 0;
 
     protected:
         IGpio() = default;

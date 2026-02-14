@@ -29,13 +29,13 @@ namespace ascent::navigation
          * @param gps GPS data.
          * @return Position in NED frame [m].
          */
-        core::Vec3f toLocalNed(const drivers::GpsData& gps) const noexcept;
+        [[nodiscard]] core::Vec3f toLocalNed(const drivers::GpsData& gps) const noexcept;
 
         /**
          * @brief Check if origin is set.
          * @return true if origin is set.
          */
-        bool hasOrigin() const noexcept;
+        [[nodiscard]] bool hasOrigin() const noexcept;
 
     private:
         double m_origin_lat = 0;

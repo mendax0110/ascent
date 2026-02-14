@@ -16,7 +16,7 @@ StatusCode DataLogger::init() noexcept
     return StatusCode::Ok;
 }
 
-StatusCode DataLogger::log(const uint8_t* data, size_t length) noexcept
+StatusCode DataLogger::log(const uint8_t* data, const size_t length) noexcept
 {
     if (!m_enabled || !m_initialized)
     {
@@ -48,7 +48,7 @@ uint32_t DataLogger::getBytesLogged() const noexcept
     return m_total_bytes;
 }
 
-void DataLogger::setEnabled(bool enabled) noexcept
+void DataLogger::setEnabled(const bool enabled) noexcept
 {
     m_enabled = enabled;
 }

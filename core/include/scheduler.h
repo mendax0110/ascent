@@ -67,7 +67,7 @@ namespace ascent::core
          * @brief Get number of registered tasks.
          * @return Number of registered tasks.
          */
-        uint32_t getTaskCount() const noexcept;
+        [[nodiscard]] uint32_t getTaskCount() const noexcept;
 
     private:
         std::array<TaskDescriptor, Config::kMaxTasks> m_tasks = {};

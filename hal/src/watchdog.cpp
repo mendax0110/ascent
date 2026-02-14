@@ -2,7 +2,7 @@
 
 using namespace ascent::hal;
 
-Watchdog::Watchdog(uint32_t timeout_ms) noexcept
+Watchdog::Watchdog(const uint32_t timeout_ms) noexcept
     : m_timeout_ms(timeout_ms)
     , m_initialized(false)
 {

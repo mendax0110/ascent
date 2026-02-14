@@ -9,7 +9,7 @@ namespace ascent::drivers
     /// @brief Accelerometer data structure. \struct ascent::drivers::AccelerometerData
     struct AccelerometerData
     {
-        ascent::core::Vec3f accel;  // acc in m/s^2
+        core::Vec3f accel;  // acc in m/s^2
     };
 
     /**

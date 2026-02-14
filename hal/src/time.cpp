@@ -21,7 +21,7 @@ uint64_t Time::micros() noexcept
     return static_cast<uint64_t>(s_tick_ms) * 1000ULL;
 }
 
-void Time::delayMs(uint32_t ms) noexcept
+void Time::delayMs(const uint32_t ms) noexcept
 {
     const uint32_t start = millis();
     while ((millis() - start) < ms)

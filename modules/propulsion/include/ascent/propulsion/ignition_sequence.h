@@ -65,13 +65,13 @@ namespace ascent::propulsion
          * @brief Check if sequence is complete.
          * @return true if complete, false otherwise.
          */
-        bool isComplete() const noexcept;
+        [[nodiscard]] bool isComplete() const noexcept;
 
         /**
         * @brief Check if sequence is running.
         * @return true if running, false otherwise.
         */
-        bool isRunning() const noexcept;
+        [[nodiscard]] bool isRunning() const noexcept;
 
     private:
         std::array<IgnitionStep, kMaxSteps> m_steps = {};

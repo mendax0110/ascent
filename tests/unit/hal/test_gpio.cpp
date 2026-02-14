@@ -5,16 +5,16 @@ using namespace ascent::hal;
 
 TEST(Gpio, ConstructWithDefaults)
 {
-    PinId id{0, 5};
-    Gpio gpio(id);
+    constexpr PinId id{0, 5};
+    const Gpio gpio(id);
     EXPECT_EQ(gpio.getId().port, 0);
     EXPECT_EQ(gpio.getId().pin, 5);
 }
 
 TEST(Gpio, ConstructAsOutput)
 {
-    PinId id{1, 3};
-    Gpio gpio(id, PinDirection::Output);
+    constexpr PinId id{1, 3};
+    const Gpio gpio(id, PinDirection::Output);
     EXPECT_EQ(gpio.getId().port, 1);
     EXPECT_EQ(gpio.getId().pin, 3);
 }
@@ -42,7 +42,7 @@ TEST(Gpio, Toggle)
 TEST(Gpio, MoveConstruction)
 {
     Gpio gpio1({2, 4}, PinDirection::Output);
-    Gpio gpio2(std::move(gpio1));
+    const Gpio gpio2(std::move(gpio1));
     EXPECT_EQ(gpio2.getId().port, 2);
     EXPECT_EQ(gpio2.getId().pin, 4);
 }

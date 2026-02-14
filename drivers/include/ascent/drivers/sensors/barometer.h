@@ -29,7 +29,7 @@ namespace ascent::drivers
          * @brief Get latest barometer readings.
          * @return const BarometerData& 
          */
-        const BarometerData& getData() const noexcept;
+        [[nodiscard]] const BarometerData& getData() const noexcept;
 
         /**
          * @brief Set reference pressure for altitude calculation.

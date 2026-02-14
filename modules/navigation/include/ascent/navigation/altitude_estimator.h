@@ -33,13 +33,13 @@ namespace ascent::navigation
          * @brief Get estimated altitude [m].
          * @return Estimated altitude in meters.
          */
-        float getAltitude() const noexcept;
+        [[nodiscard]] float getAltitude() const noexcept;
 
         /**
          * @brief Get estimated vertical velocity [m/s].
          * @return Estimated vertical velocity in m/s.
          */
-        float getVerticalVelocity() const noexcept;
+        [[nodiscard]] float getVerticalVelocity() const noexcept;
 
         /**
          * @brief Set ground-level reference.

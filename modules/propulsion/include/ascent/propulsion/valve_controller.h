@@ -45,7 +45,7 @@ namespace ascent::propulsion
          * @brief Get number of registered valves.
          * @return Number of registered valves.
          */
-        uint32_t getValveCount() const noexcept;
+        [[nodiscard]] uint32_t getValveCount() const noexcept;
 
     private:
         drivers::Valve* m_valves[kMaxValves] = {};

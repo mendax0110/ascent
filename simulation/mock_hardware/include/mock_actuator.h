@@ -19,20 +19,20 @@ namespace ascent::sim
          * @brief Check if safe() was called.
          * @return true if safe() was called at least once.
          */
-        bool wasSafed() const noexcept;
+        [[nodiscard]] bool wasSafed() const noexcept;
 
         /**
          * @brief Get number of times safe() was called.
          * @return Number of times safe() was called. 
          */
-        uint32_t getSafeCount() const noexcept;
+        [[nodiscard]] uint32_t getSafeCount() const noexcept;
 
     protected:
         /**
          * @brief Initialize the mock actuator (no-op).
          * @return ascent::core::StatusCode 
          */
-        ascent::core::StatusCode doInit() noexcept override;
+        core::StatusCode doInit() noexcept override;
         
         /**
          * @brief Increment safe count to track calls to safe().

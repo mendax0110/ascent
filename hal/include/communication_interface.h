@@ -45,7 +45,7 @@ namespace ascent::hal
          * @brief Check if data is available for reading.
          * @return Number of bytes available for reading.
          */
-        virtual size_t available() const noexcept = 0;
+        [[nodiscard]] virtual size_t available() const noexcept = 0;
 
     protected:
         ICommunication() = default;

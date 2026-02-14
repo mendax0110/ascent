@@ -42,7 +42,7 @@ TEST_F(TelemetryPipelineTest, FormatAndFrameStatus)
 
 TEST_F(TelemetryPipelineTest, FrameAndParse)
 {
-    uint8_t payload[] = {0x01, 0x02, 0x03, 0x04, 0x05};
+    const uint8_t payload[] = {0x01, 0x02, 0x03, 0x04, 0x05};
     uint8_t packet[512] = {};
     size_t pkt_size = 0;
 
@@ -74,18 +74,18 @@ TEST_F(TelemetryPipelineTest, LogFormattedPacket)
 
 TEST_F(TelemetryPipelineTest, CrcDeterministic)
 {
-    uint8_t data[] = {0xDE, 0xAD, 0xBE, 0xEF};
-    auto crc1 = communication::ProtocolHandler::computeCrc16(data, sizeof(data));
-    auto crc2 = communication::ProtocolHandler::computeCrc16(data, sizeof(data));
+    const uint8_t data[] = {0xDE, 0xAD, 0xBE, 0xEF};
+    const auto crc1 = communication::ProtocolHandler::computeCrc16(data, sizeof(data));
+    const auto crc2 = communication::ProtocolHandler::computeCrc16(data, sizeof(data));
     EXPECT_EQ(crc1, crc2);
 }
 
 TEST_F(TelemetryPipelineTest, CrcDiffersForDifferentData)
 {
-    uint8_t data1[] = {0x01, 0x02};
-    uint8_t data2[] = {0x03, 0x04};
-    auto crc1 = communication::ProtocolHandler::computeCrc16(data1, sizeof(data1));
-    auto crc2 = communication::ProtocolHandler::computeCrc16(data2, sizeof(data2));
+    const uint8_t data1[] = {0x01, 0x02};
+    const uint8_t data2[] = {0x03, 0x04};
+    const auto crc1 = communication::ProtocolHandler::computeCrc16(data1, sizeof(data1));
+    const auto crc2 = communication::ProtocolHandler::computeCrc16(data2, sizeof(data2));
     EXPECT_NE(crc1, crc2);
 }
 
@@ -93,7 +93,7 @@ TEST_F(TelemetryPipelineTest, EmptyPayloadFraming)
 {
     uint8_t packet[64] = {};
     size_t pkt_size = 0;
-    auto status = protocol.framePacket(nullptr, 0, packet, pkt_size);
+    const auto status = protocol.framePacket(nullptr, 0, packet, pkt_size);
     EXPECT_EQ(status, StatusCode::Ok);
     EXPECT_EQ(packet[0], communication::ProtocolHandler::kSyncByte);
 }

@@ -7,7 +7,7 @@ IgnitionSequence::IgnitionSequence() noexcept
 {
 }
 
-StatusCode IgnitionSequence::addStep(const char* name, uint32_t delay_ms, uint32_t hold_ms) noexcept
+StatusCode IgnitionSequence::addStep(const char* name, const uint32_t delay_ms, const uint32_t hold_ms) noexcept
 {
     if (m_step_count >= kMaxSteps)
     {
@@ -37,7 +37,7 @@ StatusCode IgnitionSequence::start() noexcept
     return StatusCode::Ok;
 }
 
-void IgnitionSequence::update(uint32_t now_ms) noexcept
+void IgnitionSequence::update(const uint32_t now_ms) noexcept
 {
     if (!m_running || m_complete)
     {

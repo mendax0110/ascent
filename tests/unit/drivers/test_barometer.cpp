@@ -27,7 +27,7 @@ protected:
 
 TEST(Barometer, DefaultDataIsZero)
 {
-    TestBarometer baro;
+    const TestBarometer baro;
     auto& data = baro.getData();
     EXPECT_FLOAT_EQ(data.pressure_pa, 0.0f);
     EXPECT_FLOAT_EQ(data.temperature_c, 0.0f);

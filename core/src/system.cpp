@@ -58,7 +58,7 @@ uint32_t System::getUptimeMs() const noexcept
     return 0;
 }
 
-bool System::isValidTransition(SystemState from, SystemState to) const noexcept
+bool System::isValidTransition(const SystemState from, const SystemState to) noexcept
 {
     if (to == SystemState::Abort || to == SystemState::Fault)
     {

@@ -45,7 +45,7 @@ namespace ascent::navigation
          * @brief Get current state estimate.
          * @return Current state estimate.
          */
-        float getEstimate() const noexcept;
+        [[nodiscard]] float getEstimate() const noexcept;
 
         /**
          * @brief Reset filter state.

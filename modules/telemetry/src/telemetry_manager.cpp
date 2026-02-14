@@ -23,7 +23,7 @@ void TelemetryManager::update() noexcept
     // TODO AdrGos: Collect and transmit telemetry
 }
 
-void TelemetryManager::setRate(uint32_t rate_hz) noexcept
+void TelemetryManager::setRate(const uint32_t rate_hz) noexcept
 {
     m_rate_hz = rate_hz;
 }

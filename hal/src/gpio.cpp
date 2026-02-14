@@ -2,7 +2,7 @@
 
 using namespace ascent::hal;
 
-Gpio::Gpio(PinId id, PinDirection direction, PullMode pull) noexcept
+Gpio::Gpio(const PinId id, const PinDirection direction, PullMode pull) noexcept
     : m_id(id)
     , m_direction(direction)
     , m_initialized(false)

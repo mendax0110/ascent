@@ -23,7 +23,7 @@ bool CommandParser::hasCommand() const noexcept
 
 Command CommandParser::getCommand() noexcept
 {
-    Command cmd = m_pending;
+    const Command cmd = m_pending;
     m_pending = {};
     m_has_pending = false;
     return cmd;

@@ -15,8 +15,8 @@ TEST(Spi, ConstructWithConfig)
 TEST(Spi, WriteReturnsOk)
 {
     Spi spi(SpiConfig{});
-    uint8_t data[] = {0x01, 0x02};
-    auto status = spi.write(data, sizeof(data));
+    constexpr uint8_t data[] = {0x01, 0x02};
+    const auto status = spi.write(data, sizeof(data));
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
@@ -24,16 +24,16 @@ TEST(Spi, ReadReturnsOk)
 {
     Spi spi(SpiConfig{});
     uint8_t data[4] = {};
-    auto status = spi.read(data, sizeof(data));
+    const auto status = spi.read(data, sizeof(data));
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
 TEST(Spi, TransferReturnsOk)
 {
     Spi spi(SpiConfig{});
-    uint8_t tx[2] = {0xAA, 0xBB};
+    constexpr uint8_t tx[2] = {0xAA, 0xBB};
     uint8_t rx[2] = {};
-    auto status = spi.transfer(tx, rx, 2);
+    const auto status = spi.transfer(tx, rx, 2);
     EXPECT_EQ(status, StatusCode::Ok);
 }
 

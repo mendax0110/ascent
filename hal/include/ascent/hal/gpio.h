@@ -48,7 +48,7 @@ namespace ascent::hal
          * @brief Read pin state.
          * @return true if pin is high.
          */
-        bool read() const noexcept;
+        [[nodiscard]] bool read() const noexcept;
 
         /**
          * @brief Write a value to the pin.
@@ -59,7 +59,7 @@ namespace ascent::hal
         /**
          * @brief Get the pin identifier.
          */
-        PinId getId() const noexcept;
+        [[nodiscard]] PinId getId() const noexcept;
 
     private:
         PinId m_id;

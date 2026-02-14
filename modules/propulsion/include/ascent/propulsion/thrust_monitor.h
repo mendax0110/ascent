@@ -27,19 +27,19 @@ namespace ascent::propulsion
          * @brief Check if burnout is detected.
          * @return true if burnout is detected.
          */
-        bool isBurnoutDetected() const noexcept;
+        [[nodiscard]] bool isBurnoutDetected() const noexcept;
 
         /**
          * @brief Get estimated total impulse [N*s].
          * @return Total impulse.
          */
-        float getTotalImpulse() const noexcept;
+        [[nodiscard]] float getTotalImpulse() const noexcept;
 
         /**
          * @brief Get burn duration [s].
          * @return Burn duration.
          */
-        float getBurnDuration() const noexcept;
+        [[nodiscard]] float getBurnDuration() const noexcept;
 
         /**
          * @brief Set burnout detection threshold.

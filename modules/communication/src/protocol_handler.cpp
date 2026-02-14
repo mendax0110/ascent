@@ -34,7 +34,7 @@ StatusCode ProtocolHandler::framePacket(const uint8_t* payload, size_t payload_l
     return StatusCode::Ok;
 }
 
-StatusCode ProtocolHandler::parsePacket(const uint8_t* packet, size_t packet_len, uint8_t* payload, size_t& payload_len) noexcept
+StatusCode ProtocolHandler::parsePacket(const uint8_t* packet, const size_t packet_len, uint8_t* payload, size_t& payload_len) noexcept
 {
     if (packet_len < kHeaderSize + 2)
     {
@@ -57,7 +57,7 @@ StatusCode ProtocolHandler::parsePacket(const uint8_t* packet, size_t packet_len
     return StatusCode::Ok;
 }
 
-uint16_t ProtocolHandler::computeCrc16(const uint8_t* data, size_t length) noexcept
+uint16_t ProtocolHandler::computeCrc16(const uint8_t* data, const size_t length) noexcept
 {
     uint16_t crc = 0xFFFF;
     for (size_t i = 0; i < length; ++i)

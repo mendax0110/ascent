@@ -54,7 +54,7 @@ TEST_F(KalmanFilterTest, CopyConstruction)
 TEST(NavigationSystem, InitSucceeds)
 {
     NavigationSystem nav;
-    auto status = nav.init();
+    const auto status = nav.init();
     EXPECT_EQ(status, StatusCode::Ok);
 }
 

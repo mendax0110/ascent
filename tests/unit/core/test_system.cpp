@@ -16,7 +16,7 @@ TEST_F(SystemTest, InitialStateBoot)
 
 TEST_F(SystemTest, InitSucceeds)
 {
-    auto status = system.init();
+    const auto status = system.init();
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
@@ -29,7 +29,7 @@ TEST_F(SystemTest, InitTransitionsToIdle)
 TEST_F(SystemTest, DoubleInitIsIdempotent)
 {
     system.init();
-    auto status = system.init();
+    const auto status = system.init();
     EXPECT_EQ(status, StatusCode::Ok);
     EXPECT_EQ(system.getState(), SystemState::Idle);
 }
@@ -37,14 +37,14 @@ TEST_F(SystemTest, DoubleInitIsIdempotent)
 TEST_F(SystemTest, ValidTransitionIdleToArmed)
 {
     system.init();
-    auto status = system.requestStateTransition(SystemState::Armed);
+    const auto status = system.requestStateTransition(SystemState::Armed);
     EXPECT_EQ(status, StatusCode::Ok);
     EXPECT_EQ(system.getState(), SystemState::Armed);
 }
 
 TEST_F(SystemTest, InvalidTransitionBootToArmed)
 {
-    auto status = system.requestStateTransition(SystemState::Armed);
+    const auto status = system.requestStateTransition(SystemState::Armed);
     EXPECT_NE(status, StatusCode::Ok);
     EXPECT_EQ(system.getState(), SystemState::Boot);
 }
@@ -52,7 +52,7 @@ TEST_F(SystemTest, InvalidTransitionBootToArmed)
 TEST_F(SystemTest, AbortAlwaysAllowed)
 {
     system.init();
-    auto status = system.requestStateTransition(SystemState::Abort);
+    const auto status = system.requestStateTransition(SystemState::Abort);
     EXPECT_EQ(status, StatusCode::Ok);
     EXPECT_EQ(system.getState(), SystemState::Abort);
 }
@@ -60,7 +60,7 @@ TEST_F(SystemTest, AbortAlwaysAllowed)
 TEST_F(SystemTest, FaultAlwaysAllowed)
 {
     system.init();
-    auto status = system.requestStateTransition(SystemState::Fault);
+    const auto status = system.requestStateTransition(SystemState::Fault);
     EXPECT_EQ(status, StatusCode::Ok);
     EXPECT_EQ(system.getState(), SystemState::Fault);
 }

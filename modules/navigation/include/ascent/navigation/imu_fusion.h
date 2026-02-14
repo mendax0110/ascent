@@ -30,7 +30,7 @@ namespace ascent::navigation
          * @param raw Raw IMU data.
          * @return Calibrated IMU data.
          */
-        drivers::ImuData apply(const drivers::ImuData& raw) const noexcept;
+        [[nodiscard]] drivers::ImuData apply(const drivers::ImuData& raw) const noexcept;
 
         /**
          * @brief Set calibration parameters.
@@ -42,7 +42,7 @@ namespace ascent::navigation
          * @brief Get current calibration.
          * @return Current calibration parameters.
          */
-        const ImuCalibration& getCalibration() const noexcept;
+        [[nodiscard]] const ImuCalibration& getCalibration() const noexcept;
 
     private:
         ImuCalibration m_calibration;

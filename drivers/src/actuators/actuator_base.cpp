@@ -11,7 +11,7 @@ ActuatorBase::ActuatorBase(const char* name) noexcept
 
 StatusCode ActuatorBase::init() noexcept
 {
-    auto status = doInit();
+    const auto status = doInit();
     if (status == StatusCode::Ok)
     {
         m_state = ActuatorState::Ready;

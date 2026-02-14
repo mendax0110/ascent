@@ -82,13 +82,13 @@ namespace ascent::communication
          * @brief Get link state.
          * @return LinkState
          */
-        LinkState getState() const noexcept;
+        [[nodiscard]] LinkState getState() const noexcept;
 
         /**
          * @brief Get link statistics.
          * @return LinkStats reference.
          */
-        const LinkStats& getStats() const noexcept;
+        [[nodiscard]] const LinkStats& getStats() const noexcept;
 
     private:
         hal::ICommunication* m_comm;

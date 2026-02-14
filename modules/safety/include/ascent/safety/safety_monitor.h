@@ -48,13 +48,13 @@ namespace ascent::safety
          * @brief Get current alert level.
          * @return Current alert level.
          */
-        AlertLevel getAlertLevel() const noexcept;
+        [[nodiscard]] AlertLevel getAlertLevel() const noexcept;
 
         /**
          * @brief Check if abort is required.
          * @return True if abort is required, false otherwise.
          */
-        bool isAbortRequired() const noexcept;
+        [[nodiscard]] bool isAbortRequired() const noexcept;
 
     private:
         AlertLevel m_alert_level = AlertLevel::None;

@@ -3,7 +3,7 @@
 using namespace ascent::hal;
 using namespace ascent::core;
 
-Adc::Adc(AdcChannel channel, uint8_t resolution_bits) noexcept
+Adc::Adc(const AdcChannel channel, const uint8_t resolution_bits) noexcept
     : m_channel(channel)
     , m_resolution_bits(resolution_bits)
     , m_initialized(false)
@@ -47,9 +47,9 @@ Result<uint16_t> Adc::readRaw() noexcept
     return Result<uint16_t>::success(0);
 }
 
-Result<uint32_t> Adc::readMillivolts(uint32_t vref_mv) noexcept
+Result<uint32_t> Adc::readMillivolts(const uint32_t vref_mv) noexcept
 {
-    auto raw = readRaw();
+    const auto raw = readRaw();
     if (!raw.ok())
     {
         return Result<uint32_t>::error(raw.status);

@@ -33,20 +33,20 @@ protected:
 
 TEST_F(EventBusTest, SubscribeSucceeds)
 {
-    auto status = EventBus::subscribe(EventId::SystemInit, testCallback);
+    const auto status = EventBus::subscribe(EventId::SystemInit, testCallback);
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
 TEST_F(EventBusTest, SubscribeNullCallbackFails)
 {
-    auto status = EventBus::subscribe(EventId::SystemInit, nullptr);
+    const auto status = EventBus::subscribe(EventId::SystemInit, nullptr);
     EXPECT_EQ(status, StatusCode::InvalidParam);
 }
 
 TEST_F(EventBusTest, PublishInvokesSubscriber)
 {
     EventBus::subscribe(EventId::SystemInit, testCallback);
-    Event evt{EventId::SystemInit, 1234, 42};
+    const Event evt{EventId::SystemInit, 1234, 42};
     EventBus::publish(evt);
 
     EXPECT_EQ(s_received_id, EventId::SystemInit);
@@ -57,7 +57,7 @@ TEST_F(EventBusTest, PublishInvokesSubscriber)
 TEST_F(EventBusTest, OnlyMatchingEventInvokesSubscriber)
 {
     EventBus::subscribe(EventId::SystemInit, testCallback);
-    Event evt{EventId::AbortRequested, 0, 0};
+    const Event evt{EventId::AbortRequested, 0, 0};
     EventBus::publish(evt);
 
     EXPECT_EQ(s_received_id, EventId::None);
@@ -68,7 +68,7 @@ TEST_F(EventBusTest, MultipleSubscribers)
 {
     EventBus::subscribe(EventId::SystemInit, testCallback);
     EventBus::subscribe(EventId::SystemInit, anotherCallback);
-    Event evt{EventId::SystemInit, 0, 0};
+    const Event evt{EventId::SystemInit, 0, 0};
     EventBus::publish(evt);
 
     EXPECT_EQ(s_callback_count, 101u);
@@ -79,7 +79,7 @@ TEST_F(EventBusTest, InitClearsSubscriptions)
     EventBus::subscribe(EventId::SystemInit, testCallback);
     EventBus::init();
 
-    Event evt{EventId::SystemInit, 0, 0};
+    const Event evt{EventId::SystemInit, 0, 0};
     EventBus::publish(evt);
 
     EXPECT_EQ(s_callback_count, 0u);

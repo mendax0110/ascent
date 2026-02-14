@@ -3,7 +3,7 @@
 
 using namespace ascent::core;
 
-StatusCode Scheduler::addTask(const char* name, TaskFunc func, uint32_t period_ms, Priority priority) noexcept
+StatusCode Scheduler::addTask(const char* name, const TaskFunc func, const uint32_t period_ms, const Priority priority) noexcept
 {
     if (m_task_count >= Config::kMaxTasks)
     {
@@ -26,7 +26,7 @@ StatusCode Scheduler::addTask(const char* name, TaskFunc func, uint32_t period_m
     return StatusCode::Ok;
 }
 
-void Scheduler::tick(uint32_t now_ms) noexcept
+void Scheduler::tick(const uint32_t now_ms) noexcept
 {
     for (uint32_t i = 0; i < m_task_count; ++i)
     {
@@ -45,7 +45,7 @@ void Scheduler::tick(uint32_t now_ms) noexcept
     }
 }
 
-StatusCode Scheduler::setTaskEnabled(const char* name, bool enabled) noexcept
+StatusCode Scheduler::setTaskEnabled(const char* name, const bool enabled) noexcept
 {
     for (uint32_t i = 0; i < m_task_count; ++i)
     {

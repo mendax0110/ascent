@@ -14,7 +14,7 @@ protected:
 
 TEST_F(SafetyMonitorTest, InitSucceeds)
 {
-    auto status = monitor.init();
+    const auto status = monitor.init();
     EXPECT_EQ(status, StatusCode::Ok);
 }
 
@@ -49,22 +49,22 @@ protected:
 
 TEST_F(RangeSafetyTest, WithinLimits)
 {
-    RangeSafety rs(config);
-    Vec3f pos{100.0f, 200.0f, -500.0f};  // NED: -Z is up
-    Vec3f vel{10.0f, 5.0f, -20.0f};
+    const RangeSafety rs(config);
+    constexpr Vec3f pos{100.0f, 200.0f, -500.0f};  // NED: -Z is up
+    constexpr Vec3f vel{10.0f, 5.0f, -20.0f};
     EXPECT_TRUE(rs.checkLimits(pos, vel));
 }
 
 TEST_F(RangeSafetyTest, Origin)
 {
-    RangeSafety rs(config);
-    Vec3f zero{};
+    const RangeSafety rs(config);
+    constexpr Vec3f zero{};
     EXPECT_TRUE(rs.checkLimits(zero, zero));
 }
 
 TEST_F(RangeSafetyTest, DefaultConfig)
 {
-    RangeSafety rs;
+    const RangeSafety rs;
     auto& cfg = rs.getConfig();
     EXPECT_FLOAT_EQ(cfg.max_altitude_m, 10000.0f);
     EXPECT_FLOAT_EQ(cfg.max_range_m, 5000.0f);
@@ -82,7 +82,7 @@ TEST_F(RangeSafetyTest, SetConfig)
 
 TEST(HealthMonitor, InitialStatus)
 {
-    HealthMonitor hm;
+    const HealthMonitor hm;
     auto& status = hm.getStatus();
     EXPECT_FLOAT_EQ(status.battery_voltage, 0.0f);
     EXPECT_FALSE(status.all_ok);

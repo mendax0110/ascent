@@ -4,7 +4,7 @@ using namespace ascent::drivers;
 using namespace ascent::core;
 using namespace ascent::hal;
 
-SensorBase::SensorBase(const char* name, uint32_t sample_period_ms) noexcept
+SensorBase::SensorBase(const char* name, const uint32_t sample_period_ms) noexcept
     : m_name(name)
     , m_sample_period_ms(sample_period_ms)
 {
@@ -12,7 +12,7 @@ SensorBase::SensorBase(const char* name, uint32_t sample_period_ms) noexcept
 
 StatusCode SensorBase::init() noexcept
 {
-    auto status = doInit();
+    const auto status = doInit();
     if (status == StatusCode::Ok)
     {
         m_state = SensorState::Ready;
@@ -33,7 +33,7 @@ StatusCode SensorBase::update() noexcept
     }
 
     m_state = SensorState::Reading;
-    auto status = doUpdate();
+    const auto status = doUpdate();
 
     if (status == StatusCode::Ok)
     {

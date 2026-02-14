@@ -10,7 +10,7 @@ namespace ascent::drivers
     /// @brief Gyroscope data structure. \struct ascent::drivers::GyroscopeData
     struct GyroscopeData
     {
-        ascent::core::Vec3f angular_rate;  // Angular rate in rad/s
+        core::Vec3f angular_rate;  // Angular rate in rad/s
     };
 
     /**

@@ -26,7 +26,7 @@ public:
      */
     StatusCode init() noexcept
     {
-        auto status = m_system.init();
+        const auto status = m_system.init();
         if (status != StatusCode::Ok)
         {
             return status;

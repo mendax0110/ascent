@@ -43,12 +43,12 @@ StatusCode Spi::transfer(const uint8_t* tx_data, uint8_t* rx_data, size_t length
     return StatusCode::Ok;
 }
 
-StatusCode Spi::write(const uint8_t* data, size_t length) noexcept
+StatusCode Spi::write(const uint8_t* data, const size_t length) noexcept
 {
     return transfer(data, nullptr, length);
 }
 
-StatusCode Spi::read(uint8_t* data, size_t length) noexcept
+StatusCode Spi::read(uint8_t* data, const size_t length) noexcept
 {
     return transfer(nullptr, data, length);
 }
